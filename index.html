@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOR YOU</title>
+    <link rel="stylesheet" href="cs.css">
+</head>
+<body>
+    <div class="container">
+        <div class="me">HAPPY <br>BIRTH DAY</div>
+        <div class="heart"></div>
+    </div>
+    <script src="anime.min.js"></script>
+    <script>
+    const container = document.querySelector('.container');
+    for (var i = 1; i<= 100; i++){
+        const hearts = document.createElement('div');
+        hearts.classList.add('heart');
+        container.appendChild(hearts);
+    }
+    function animateHearts(){
+    anime({
+        targets: '.heart',
+        translateX: function(){
+            return anime.random(-3500,3500); 
+        },
+        translateY: function(){
+            return anime.random(-900,900); 
+        },
+        rotate: 45,
+        scale: function(){
+            return anime.random(1,4); 
+        },
+
+        easing: 'easeInOutBack',
+        duration: 4000,
+        delay: anime.stagger(10),
+        complete: animateHearts,  
+    })
+}
+animateHearts()
+    </script>
+</body>
+</html>
